@@ -3,6 +3,11 @@
     padding: 0;
     font-family: poppins, sans-serif;
     box-sizing: border-box;
+    user-select: none;
+}
+
+input, textarea {
+  user-select: text;
 }
 html{
     scroll-behavior: smooth;
@@ -10,6 +15,7 @@ html{
 body{
     background-color: #080808;
     color: #ffffff; 
+    user-select: none;
 }
 
 #header{
@@ -18,8 +24,8 @@ body{
 }
 
 .Logo{
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 }
 
 .container{
@@ -70,6 +76,18 @@ nav ul li a::after{
 
 nav ul li a:hover::after{
     width: 100%;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;         /* hidden by default */
+  z-index: 998;          /* just below the menu */
+  transition: opacity 0.3s ease;
 }
 
 .header-text{
@@ -485,6 +503,7 @@ form .btn2{
     /*02 ---------------------CSS for Small screen----------- */
 nav .fa-solid {
     display: none;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px){
@@ -506,26 +525,44 @@ nav .fa-solid {
     nav .fa-solid{
         display: block;
         font-size: 30px;
+        
     }
-    nav ul{
+
+
+    /* nav ul{
         background: #f4721f;
         position: fixed;
         top: 0;
-        right:-200px;
-        width: 200px;
+        right: -100%;
+        
+        width: 55%;
         height: 100vh;
+        padding-top: 60px;
+        z-index: 999;
+        transition: right 0.4s ease-in-out;
+        flex-direction: column;
+    } */
+
+        nav ul{
+        background: #050908;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 45vh;
         padding-top: 50px;
         z-index: 2;
         transition: right 0.5s;
     }
+
     nav ul li{
         display: block;
         margin: 25px;
     }
     nav ul .fa-solid{
         position: absolute;
-        top: 60px;
-        left:155px;
+        top: 55px;
+        left: 157px;
         cursor: pointer;
     }
     .sub-title{
@@ -555,4 +592,7 @@ nav .fa-solid {
     color: #61b752;
     margin: -30px;
     display: block;
+}
+html, body {
+    overflow-x: hidden;
 }

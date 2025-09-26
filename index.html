@@ -25,6 +25,9 @@
           </ul>
           <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
+
+        <div id="overlay"></div>
+
         <div class="header-text">
           <p>Web Developer</p>
           <h1>
@@ -236,6 +239,7 @@
         <p>&copy; Copyright Muhammad Umar. All rights reserved.</p>
       </div>
     </div>
+
     <script>
       var tablinks = document.getElementsByClassName("tab-links");
       var tabcontents = document.getElementsByClassName("tab-contents");
@@ -253,14 +257,32 @@
     </script>
     <script>
       var sidemenu = document.getElementById("sidemenu");
+      var overlay = document.getElementById("overlay");
 
-      function openmenu() {
-        sidemenu.style.right = "0";
-      }
-      function closemenu() {
-        sidemenu.style.right = "-200px";
-      }
+function openmenu() {
+  sidemenu.style.right = "0";
+  overlay.style.display = "block";      // show overlay
+  setTimeout(() => overlay.style.opacity = "1", 10); // smooth fade
+}
+
+function closemenu() {
+  sidemenu.style.right = "-100%";
+  overlay.style.opacity = "0";          // fade out
+  setTimeout(() => overlay.style.display = "none", 300); // hide after fade
+}
+
+// Close menu when any nav link is clicked
+document.querySelectorAll("#sidemenu li a").forEach(link => {
+  link.addEventListener("click", () => {
+    closemenu();
+  });
+});
+
+
+// Close menu if overlay is clicked
+overlay.onclick = closemenu;
     </script>
+
     <script>
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxXCJDzFi5euMvmFbUy5ISxNsQ_X9uJuzXJo0m3EB09Jh5jekT-pXtcbhyUD--PYjGh/exec";
