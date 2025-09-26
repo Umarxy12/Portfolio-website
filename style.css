@@ -508,7 +508,7 @@ nav .fa-solid {
 
 @media only screen and (max-width: 600px){
     .header-text{
-        margin-top: 100px;
+        margin-top: 0px;
         font-size: 16px;
         justify-content: center;
         align-items: center;
@@ -547,7 +547,7 @@ nav .fa-solid {
         background: #050908;
         position: fixed;
         top: 0;
-        right: -200px;
+        right: -220px;
         width: 200px;
         height: 45vh;
         padding-top: 50px;
@@ -561,7 +561,7 @@ nav .fa-solid {
     }
     nav ul .fa-solid{
         position: absolute;
-        top: 55px;
+        top: 60px;
         left: 157px;
         cursor: pointer;
     }
